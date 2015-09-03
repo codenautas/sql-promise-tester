@@ -7,7 +7,7 @@ var sqlPromiseTester = {};
 
 var expect = require('expect.js');
 
-sqlPromiseTester.test = function(motor, opts){
+sqlPromiseTester = function(motor, opts){
     var defaultConnOpts={
         user:'test_user',
         password:'test_pass',
