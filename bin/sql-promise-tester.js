@@ -15,7 +15,7 @@ sqlPromiseTester = function(motor, opts){
         host:'localhost',
         port:motor.defaultPort
     };
-    describe('sql-promise-tester '+motor.name, function(){
+    describe('sql-promise-tester '+motor.motorName, function(){
         before(function(done){
             if(opts.prepare){
                 opts.prepare().then(done,done);
