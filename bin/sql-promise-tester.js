@@ -51,20 +51,31 @@ sqlPromiseTester = function(motor, opts){
         describe('connectected tests', function(done){
             var conn;
             before(function(done){
+                console.log('before',opts.connOpts||defaultConnOpts);
                 motor.connect(opts.connOpts||defaultConnOpts).then(function(obtainedConn){
+                    console.log('ok connect');
                     conn=obtainedConn;
+                    console.log('ok connect2');
                     done();
+                    console.log('ok connect3');
                 }).catch(done);
             });
             after(function(done){
+                console.log('after 1');
                 conn.done();
+                console.log('after 2');
                 done();
             });
             it('must create table',function(done){
+                console.log('must 1');
                 var cursor=conn.query("CREATE TABLE example1(id integer primary key, datum text)");
+                console.log('must 2');
                 expect(cursor.execute).to.be.a(Function);
+                console.log('must 3');
                 cursor.execute().then(function(result){
+                console.log('must 4');
                     console.log('result',result);
+                console.log('must 5');
                     done();
                 }).catch(done);
             });
