@@ -73,21 +73,25 @@ sqlPromiseTester = function(motor, opts){
             });
             it('must create table',function(done){
                 console.log('must 1');
-                var cursor=conn.query("CREATE TABLE example1(id integer primary key, datum text)");
-                console.log('must 2');
-                expect(cursor.execute).to.be.a(Function);
-                console.log('must 3');
-                cursor.execute().then(function(result){
-                console.log('must 4');
+                conn.query("CREATE TABLE example1(id integer primary key, datum text)").then(function(query){
+                    console.log('must 2');
+                    expect(query.fetchAll).to.be.a(Function);
+                    console.log('must 3');
+                    return query.fetchAll();
+                }).then(function(result){
+                    console.log('must 4');
                     console.log('result',result);
-                console.log('must 5');
+                    console.log('must 5');
                     done();
                 }).catch(done);
             });
             it('must insert data',function(done){
                 var cursor=conn.query(
                     "INSERT INTO example1 VALUES (1, 'one')"
-                ).execute().then(function(result){
+                // MAS ADELANTE ESTA SINTAXIS: ).execute().then(function(result){
+                ).then(function(query){
+                    return query.fetchAll();
+                }).then(function(result){
                     console.log('result',result);
                     expect(result.rowCount).to.be(1);
                     done();
@@ -96,7 +100,10 @@ sqlPromiseTester = function(motor, opts){
             it('must select data',function(done){
                 var cursor=conn.query(
                     "SELECT * FROM example1"
-                ).fetchAll().then(function(result){
+                // MAS ADELANTE ESTA SINTAXIS: ).fetchAll().then(function(result){
+                ).then(function(query){
+                    return query.fetchAll();
+                }).then(function(result){
                     console.log('result',result);
                     expect(result.rows).to.eql([{id:1, datum:'one'}]);
                     done();

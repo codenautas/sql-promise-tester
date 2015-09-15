@@ -1,6 +1,6 @@
 {
   "name": "sql-promise-tester",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Test for sql-promise based libraries",
   "main": "bin/sql-promise-tester.js",
   "scripts": {
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/codenautas/sql-promise-tester",
   "dependencies": {
-    "sql-promise": "0.0.8"
+    "sql-promise": "0.0.11"
   },
   "devDependencies": {
     "expect.js": "0.3.1"
