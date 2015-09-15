@@ -21,7 +21,10 @@
     "url": "https://github.com/codenautas/sql-promise-tester/issues"
   },
   "homepage": "https://github.com/codenautas/sql-promise-tester",
+  "dependencies": {
+    "sql-promise": "0.0.8"
+  },
   "devDependencies": {
-    "expect.js": "^0.3.1"
+    "expect.js": "0.3.1"
   }
 }

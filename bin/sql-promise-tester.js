@@ -7,8 +7,11 @@ var sqlPromiseTester = {};
 
 var expect = require('expect.js');
 
+var sqlPromise = require('sql-promise');
+
 sqlPromiseTester = function(motor, opts){
     var defaultConnOpts={
+        motor: 'test',
         user:'test_user',
         password:'test_pass',
         database:'test_db',
@@ -18,7 +21,9 @@ sqlPromiseTester = function(motor, opts){
     describe('sql-promise-tester '+motor.motorName, function(){
         before(function(done){
             if(opts.prepare){
-                opts.prepare().then(done,done);
+                opts.prepare().then(function(){
+                    sqlPromise.register('test', motor);
+                }).then(done,done);
             }else{
                 done();
             }
@@ -27,13 +32,13 @@ sqlPromiseTester = function(motor, opts){
             expect('defaultPort' in motor).to.be.ok();
         });
         it('connect', function(done){
-            motor.connect(opts.connOpts||defaultConnOpts).then(function(connection){
+            sqlPromise.connect(opts.connOpts||defaultConnOpts).then(function(connection){
                 connection.done();
                 done();
             }).catch(done);
         });
         it('not connect with bad connection parameters', function(done){
-            motor.connect(opts.badConnOpts||{
+            sqlPromise.connect(opts.badConnOpts||{
                 user:'test_user',
                 password:'BAD PASS',
                 database:'test_db',
@@ -52,7 +57,7 @@ sqlPromiseTester = function(motor, opts){
             var conn;
             before(function(done){
                 console.log('before',opts.connOpts||defaultConnOpts);
-                motor.connect(opts.connOpts||defaultConnOpts).then(function(obtainedConn){
+                sqlPromise.connect(opts.connOpts||defaultConnOpts).then(function(obtainedConn){
                     console.log('ok connect');
                     conn=obtainedConn;
                     console.log('ok connect2');
