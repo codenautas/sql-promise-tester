@@ -1,6 +1,6 @@
 {
   "name": "sql-promise-tester",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Test for sql-promise based libraries",
   "main": "bin/sql-promise-tester.js",
   "scripts": {
