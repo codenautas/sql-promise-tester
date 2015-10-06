@@ -3,12 +3,9 @@
   "version": "0.0.18",
   "description": "Test for sql-promise based libraries",
   "main": "lib/sql-promise-tester.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/codenautas/sql-promise-tester.git"
+    "url": "https://github.com/codenautas/sql-promise-tester"
   },
   "author": "Codenautas <codenautas@googlegroups.com>",
   "contributors": [{
@@ -26,5 +23,19 @@
   },
   "devDependencies": {
     "expect.js": "0.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "jshintConfig": {
+    "asi": false,
+    "curly": true,
+    "forin": true
+  },
+  "qa-control": {
+    "package-version": "0.0.1",
+    "run-in": "server",
+    "stability": "designing",
+    "type": "lib"
   }
 }
