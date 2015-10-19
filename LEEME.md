@@ -9,7 +9,7 @@ Test for sql-promise-tester based libraries
 [!--lang:*-->
 
 <!-- cucardas -->
-![designing](https://img.shields.io/badge/stability-desgining-red.svg)
+![designing](https://img.shields.io/badge/stability-designing-red.svg)
 [![npm-version](https://img.shields.io/npm/v/sql-promise-tester.svg)](https://npmjs.org/package/sql-promise-tester)
 [![downloads](https://img.shields.io/npm/dm/sql-promise-tester.svg)](https://npmjs.org/package/sql-promise-tester)
 [![build](https://img.shields.io/travis/codenautas/sql-promise-tester/master.svg)](https://travis-ci.org/codenautas/sql-promise-tester)
